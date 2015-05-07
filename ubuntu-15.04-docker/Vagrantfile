@@ -1,0 +1,47 @@
+$script = <<SCRIPT
+	#!/bin/bash
+
+	#System
+	sudo apt-get update
+	sudo apt-get dist-upgrade
+	sudo apt-get install -y lubuntu-desktop virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
+
+	#Chrome
+	sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - # Docker 1.5 comes with ubuntu 15.04
+	sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+	sudo apt-get update 
+	sudo apt-get install -y google-chrome-stable
+
+	#Docker and compose
+	sudo wget -qO- https://get.docker.com/ | sh
+	#sudo apt-get install -y docker.io
+	sudo systemctl enable docker
+	sudo systemctl start docker
+	sudo curl -L https://github.com/docker/compose/releases/download/1.2.0/docker-compose-`uname -s`-`uname -m` > docker-compose && chmod +x docker-compose && sudo mv docker-compose /usr/local/bin/
+	sudo curl -L https://raw.githubusercontent.com/docker/compose/1.2.0/contrib/completion/bash/docker-compose > docker-compose && sudo mv docker-compose /etc/bash_completion.d/
+
+	#Timezone, Language
+	#sudo timedatectl set-timezone Europe/Madrid
+	#sudo apt-get install -y language-pack-ca language-pack-gnome-ca language-pack-ca-base language-pack-gnome-ca-base 
+	#sudo update-locale LANG=ca_ES.UTF-8 LC_MESSAGES=POSIX
+	
+	#Start
+	sudo apt-get install -y xinit
+	sudo startx	
+SCRIPT
+
+Vagrant.configure(2) do |config|
+  
+  config.vm.box = "ubuntu/vivid64"
+
+  config.vm.box_check_update = false
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = true
+    vb.memory = "1024"
+    vb.name = "ubuntu-15.04 docker"
+  end
+
+  config.vm.provision "shell", inline: $script
+
+end
