@@ -23,7 +23,7 @@ $script = <<SCRIPT
 
 	#Timezone, Language
 	sudo timedatectl set-timezone Europe/Madrid
-	sudo apt-get install -y language-pack-ca language-pack-gnome-ca language-pack-ca-base language-pack-gnome-ca-base 
+	sudo apt-get install -y language-pack-ca language-pack-gnome-ca language-pack-ca-base language-pack-gnome-ca-base xinit
 	sudo update-locale LANG=ca_ES.UTF-8 LC_MESSAGES=POSIX
 
 	#Gencat customization
@@ -41,8 +41,11 @@ $script = <<SCRIPT
 	#DEVELOPMENT ENVIRONMENT
 	#sudo apt-get -y install oracle-java7-installer
 	sudo apt-get -y install openjdk-7-jdk
-	sudo wget http://www.mirrorservice.org/sites/download.eclipse.org/eclipseMirror/technology/epp/downloads/release/luna/SR2/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz && sudo tar -zxvf eclipse*.tar.gz && sudo rm eclipse*.tar.gz && sudo mv eclipse* /opt/
-	/opt/eclipse/eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/indigo/,http://cmakeed.sourceforge.
+
+	sudo wget http://www.mirrorservice.org/sites/download.eclipse.org/eclipseMirror/technology/epp/downloads/release/luna/SR2/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz 
+	sudo tar -zxvf eclipse*.tar.gz 
+	sudo rm eclipse*.tar.gz 
+	sudo mv eclipse* /opt/
 
 	#Maven
 	#sudo apt-get install maven2
@@ -53,9 +56,7 @@ $script = <<SCRIPT
 	#Canigo 3.1.1 Plug-ins Feature 1.2.1
 	#/opt/eclipse/eclipse -nosplash -application org.eclipse.equinox.p2.director -repository  http://repos.canigo.ctti.gencat.cat/repository/maven2/cat/gencat/ctti/canigo.plugin/update-site/ -installIU cat.gencat.ctti.canigo.feature.feature.group
 
-
 	#Start
-	sudo apt-get install -y xinit
 	sudo startx	
 SCRIPT
 
