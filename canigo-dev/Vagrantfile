@@ -42,16 +42,13 @@ $script = <<SCRIPT
 	#sudo apt-get -y install oracle-java7-installer
 	sudo apt-get -y install openjdk-7-jdk
 
-	sudo wget http://www.mirrorservice.org/sites/download.eclipse.org/eclipseMirror/technology/epp/downloads/release/luna/SR2/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz 
-	sudo tar -zxvf eclipse*.tar.gz 
-	sudo rm eclipse*.tar.gz 
-	sudo mv eclipse* /opt/
+	sudo wget http://www.mirrorservice.org/sites/download.eclipse.org/eclipseMirror/technology/epp/downloads/release/luna/SR2/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz && sudo tar -zxvf eclipse*.tar.gz && sudo rm eclipse*.tar.gz && sudo mv eclipse* /opt/
 
 	#Maven
 	#sudo apt-get install maven2
 	
 	#Maven plugin eclipse
-	#/opt/eclipse/eclipse -nosplash -application org.eclipse.equinox.p2.director -repository https://repository.sonatype.org/content/repositories/forge-sites/m2e/0.10.0/S/20100205-2200/ -installIU org.maven.ide.eclipse.feature.feature.group
+	#/opt/eclipse/eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/technology/m2e/releases -installIU org.eclipse.m2e.feature.feature.group
 
 	#Canigo 3.1.1 Plug-ins Feature 1.2.1
 	#/opt/eclipse/eclipse -nosplash -application org.eclipse.equinox.p2.director -repository  http://repos.canigo.ctti.gencat.cat/repository/maven2/cat/gencat/ctti/canigo.plugin/update-site/ -installIU cat.gencat.ctti.canigo.feature.feature.group
@@ -68,7 +65,8 @@ Vagrant.configure(2) do |config|
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true
-    vb.memory = "1280"
+    vb.memory = "1536"
+	vb.cpus = 2
     vb.name = "CanigoDev"
   end
 
