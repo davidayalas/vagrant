@@ -50,7 +50,7 @@ $script = <<SCRIPT
 	#sudo wget http://canigo.ctti.gencat.cat/devenv/fonspantalla_1280.png -O /usr/share/lubuntu/wallpapers/1504-lubuntu-default-wallpaper.png 
 
 	#Maven (3.0.5) - no instal·lem maven, utilitzem la versió embedded 3.2.1 d'Eclipse Luna JEE
-	#sudo apt-get install maven
+	#sudo apt-get -y install maven
 	
 	#Settings de Maven
 	sudo wget http://canigo.ctti.gencat.cat/devenv/maven_settings/settings.xml -O /home/vagrant/.m2/settings.xml
@@ -65,7 +65,7 @@ $script = <<SCRIPT
 	sudo wget http://canigo.ctti.gencat.cat/devenv/patch_plugin_canigo/maven-embedder-3.2.1.jar -O /opt/eclipse/plugins/org.eclipse.m2e.maven.runtime_1.5.1.20150109-1819/jars/maven-embedder-3.2.1.jar
 
 	#JavaHL Library
-	sudo apt-get install libsvn-java
+	sudo apt-get -y install libsvn-java
 
 	#Afegir al /opt/eclipse/eclipse.ini -vmargs (no ha estat necessari)
 	#-Djava.library.path==/usr/lib/x86_64-linux-gnu/jni/libsvnjavahl-1.so
