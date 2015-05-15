@@ -53,6 +53,7 @@ $script = <<SCRIPT
 	#sudo apt-get -y install maven
 	
 	#Settings de Maven
+	sudo mkdir /home/vagrant/.m2
 	sudo wget http://canigo.ctti.gencat.cat/devenv/maven_settings/settings.xml -O /home/vagrant/.m2/settings.xml
 
 	#Maven plugin eclipse m2e -> No l'instal·lem ja que l'Eclipse Luna JEE porta la versió 1.5.1
