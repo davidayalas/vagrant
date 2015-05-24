@@ -50,7 +50,7 @@ $script = <<SCRIPT
 	#sudo wget http://canigo.ctti.gencat.cat/devenv/fonspantalla_1280.png -O /usr/share/lubuntu/wallpapers/1504-lubuntu-default-wallpaper.png 
 
 	#Splash image
-	sudo wget http://canigo.ctti.gencat.cat/devenv/splash.bmp -O /opt/eclipse/plugins/org.eclipse.platform_4.4.2.v20150204-1700/splash.bmp
+	sudo wget http://canigo.ctti.gencat.cat/devenv/splash.bmp /opt/eclipse/plugins/org.eclipse.platform_4.4.2.v20150204-1700/splash.bmp
 
 	#Maven (3.0.5) - no instal·lem maven, utilitzem la versió embedded 3.2.1 d'Eclipse Luna JEE
 	#sudo apt-get -y install maven
