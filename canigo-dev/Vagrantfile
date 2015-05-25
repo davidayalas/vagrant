@@ -52,6 +52,9 @@ $script = <<SCRIPT
 	#Splash image
 	sudo wget http://canigo.ctti.gencat.cat/devenv/splash.bmp -O /opt/eclipse/plugins/org.eclipse.platform_4.4.2.v20150204-1700/splash.bmp
 
+	#Eclipse icon
+	sudo wget http://canigo.ctti.gencat.cat/devenv/icon.xpm -O /opt/eclipse/icon.xpm
+
 	#Maven (3.0.5) - no instal·lem maven, utilitzem la versió embedded 3.2.1 d'Eclipse Luna JEE
 	#sudo apt-get -y install maven
 	
