@@ -4,7 +4,7 @@ $script = <<SCRIPT
 	#System
 	sudo apt-get update
 	sudo apt-get dist-upgrade
-	sudo apt-get install -y lubuntu-desktop virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11 xinit
+	sudo apt-get install -y lubuntu-desktop virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
 
 	#Chrome
 	sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - # Docker 1.5 comes with ubuntu 15.04
@@ -26,6 +26,7 @@ $script = <<SCRIPT
 	#sudo update-locale LANG=ca_ES.UTF-8 LC_MESSAGES=POSIX
 	
 	#Start
+	sudo apt-get install -y xinit
 	sudo startx	
 SCRIPT
 
